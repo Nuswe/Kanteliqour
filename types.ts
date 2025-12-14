@@ -1,3 +1,4 @@
+
 export enum UserRole {
   ADMIN = 'admin',
   MANAGER = 'manager',
@@ -38,6 +39,7 @@ export interface Product {
   image?: string;
   lowStockThreshold: number;
   expiryDate?: string;
+  supplierId?: string;
 }
 
 export interface CartItem extends Product {
@@ -49,6 +51,7 @@ export interface SaleItem {
   name: string;
   quantity: number;
   price: number;
+  costPrice: number;
   total: number;
 }
 
@@ -78,6 +81,35 @@ export interface Supplier {
   contactPerson: string;
   phone: string;
   email: string;
+}
+
+export interface Expense {
+  id: string;
+  date: string;
+  category: string;
+  description: string;
+  amount: number;
+  recordedBy: string;
+}
+
+export interface StoreSettings {
+  shopName: string;
+  addressLine1: string;
+  addressLine2: string;
+  phone: string;
+  tinNumber: string;
+  taxRate: number;
+  receiptFooter: string;
+}
+
+export interface ActivityLog {
+  id: string;
+  userId: string;
+  userName: string;
+  action: string;
+  details: string;
+  timestamp: string;
+  type: 'info' | 'warning' | 'danger' | 'success';
 }
 
 export interface AppState {
